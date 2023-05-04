@@ -13,10 +13,13 @@ body {
 }
 
 .calculator-shell {
+    display: flex;
+    flex-direction: column;
     background-color: #acacac;
     width: inherit;
     height: inherit;
     border-radius: 3%;
+    gap: 5px;
 }
 
 .display-container {
@@ -28,10 +31,35 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin: 15px 0px;
-    padding: 0px 15px;
+    margin: 25px;
+    padding: 0px 7px;
     background-color: #ffffff;
     width: 85%;
     height: 70px;
     font-size: 40px;
+}
+
+.row-container {
+    display: flex;
+    flex: 1 1 auto;
+    gap: 5px;
+    padding: 0 33px;
+    
+}
+
+.button-num {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-size: 25px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    gap: 5px;
+    margin-bottom: 25px;
 }
