@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.calculator-container {
+    margin: 200px 0 0 0;
+    background-color: #333333;
+    width: 400px;
+    height: 500px;
+    padding: 12px;
+    border-radius: 5%;
+}
+
+.calculator-shell {
+    background-color: #acacac;
+    padding: 20px;
+    height: 460px;
+    border-radius: 3%;
+}
+
+.display-container {
+    display: flex;
+    justify-content: center;
+}
+
+.calculator-display {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px 15px;
+    background-color: #ffffff;
+    width: 335px;
+    height: 70px;
+    font-size: 40px;
+}
