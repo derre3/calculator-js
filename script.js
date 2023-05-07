@@ -14,9 +14,9 @@ function divide(a, b) {
     return a / b;
 }
 
-function operate(num, op) {
-    return op(num[0], num[1]);
-}
+// function operate(num, op) {
+//     return op(num[0], num[1]);
+// }
 
 function populateDisplay() {
     return textDisplay.textContent = buttonClicked.join('');
@@ -24,11 +24,10 @@ function populateDisplay() {
 
 function clearCalc() {
     buttonClicked = [];
-    return textDisplay.textContent = '';
+    return textDisplay.textContent = 0;
 }
 
 const textDisplay = document.querySelector('.calculator-display');
-textDisplay.textContent = ''
 let buttonClicked = []
 
 // click event for number buttons
@@ -43,3 +42,27 @@ for (let i = 0; i < buttonNum.length; i++) {
 // click event for AC button
 const buttonClear = document.querySelector('.button.clear');
 buttonClear.addEventListener('click', clearCalc);
+
+const buttonOperate = document.querySelector('.button.operate');
+
+const buttonAdd = document.querySelector('.button.add');
+buttonAdd.addEventListener('click', testAdd)
+
+let num1;
+let num2;
+
+function testAdd() {
+    num1 = +textDisplay.textContent
+
+    textDisplay.textContent = '';
+    buttonClicked = [];
+
+    if (num2 === undefined) {
+        return num2 = num1
+    }
+
+    const sum = +num2 + +num1;
+    num2 = undefined
+    
+    return textDisplay.textContent = sum
+}
