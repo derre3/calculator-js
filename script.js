@@ -1,5 +1,18 @@
-function add(a, b) {
-    return a + b;
+function add() {
+    resetButtons()
+    buttonClicked = [];
+    buttonAdd.style.backgroundColor = '#797979';
+    buttonAdd.style.borderColor = '#ffffff';
+    buttonAdd.style.color = '#ffffff';
+
+    if (nums[0] === undefined) {
+        selectedOperator = 'add';
+        nums[0] = +textDisplay.textContent;;
+        return textDisplay.textContent = '';
+    }
+    operate();
+    selectedOperator = 'add';
+    return textDisplay.textContent = nums[0]
 }
 
 function sub(a, b) {
