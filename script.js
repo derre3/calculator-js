@@ -66,21 +66,44 @@ function divide(a, b) {
     return textDisplay.textContent = nums[0]
 }
 
-// function operate(num, op) {
-//     return op(num[0], num[1]);
-// }
+function operate() {
+    nums[1] = +textDisplay.textContent;
+    if (selectedOperator === 'add') {
+        return nums[0] += nums[1]
+    } else if (selectedOperator === 'sub') {
+        return nums[0] -= nums[1]
+    } else if (selectedOperator === 'multiply') {
+        return nums[0] *= nums[1]
+    } else if (selectedOperator === 'divide') {
+        return nums[0] /= nums[1]
+    }
+}
 
 function populateDisplay() {
+    resetButtons()
     return textDisplay.textContent = buttonClicked.join('');
 }
 
+function resetButtons() {
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].style.backgroundColor = '#ffffff'
+        buttons[i].style.borderColor = '#797979';
+        buttons[i].style.color = '#000000';
+    }
+}
+
 function clearCalc() {
+    resetButtons()
     buttonClicked = [];
+    nums = [];
     return textDisplay.textContent = 0;
 }
 
 const textDisplay = document.querySelector('.calculator-display');
-let buttonClicked = []
+
+let buttonClicked = [];
+let nums = [];
+let selectedOperator
 
 // click event for number buttons
 const buttonNum = document.querySelectorAll('.button.num');
@@ -92,29 +115,27 @@ for (let i = 0; i < buttonNum.length; i++) {
 }
 
 // click event for AC button
+const buttons = document.querySelectorAll('.button');
+
 const buttonClear = document.querySelector('.button.clear');
 buttonClear.addEventListener('click', clearCalc);
 
-const buttonOperate = document.querySelector('.button.operate');
-
 const buttonAdd = document.querySelector('.button.add');
-buttonAdd.addEventListener('click', testAdd)
+buttonAdd.addEventListener('click', add)
 
-let num1;
-let num2;
+const buttonSub = document.querySelector('.button.sub');
+buttonSub.addEventListener('click', sub)
 
-function testAdd() {
-    num1 = +textDisplay.textContent
+const buttonMultiply = document.querySelector('.button.multiply');
+buttonMultiply.addEventListener('click', multiply)
 
-    textDisplay.textContent = '';
-    buttonClicked = [];
+const buttonDivide = document.querySelector('.button.divide');
+buttonDivide.addEventListener('click', divide)
 
-    if (num2 === undefined) {
-        return num2 = num1
-    }
-
-    const sum = +num2 + +num1;
-    num2 = undefined
-    
-    return textDisplay.textContent = sum
-}
+const buttonOperate = document.querySelector('.button.operate');
+buttonOperate.addEventListener('click', () => {
+    operate();
+    const total = nums[0]
+    clearCalc();
+    return textDisplay.textContent = total;
+});
