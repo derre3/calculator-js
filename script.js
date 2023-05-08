@@ -32,7 +32,7 @@ function sub() {
     return textDisplay.textContent = nums[0]
 }
 
-function multiply(a, b) {
+function multiply() {
     resetButtons()
     buttonClicked = [];
     buttonMultiply.style.backgroundColor = '#797979';
@@ -49,7 +49,7 @@ function multiply(a, b) {
     return textDisplay.textContent = nums[0]
 }
 
-function divide(a, b) {
+function divide() {
     resetButtons()
     buttonClicked = [];
     buttonDivide.style.backgroundColor = '#797979';
