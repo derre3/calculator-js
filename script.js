@@ -15,16 +15,55 @@ function add() {
     return textDisplay.textContent = nums[0]
 }
 
-function sub(a, b) {
-    return a - b;
+function sub() {
+    resetButtons()
+    buttonClicked = [];
+    buttonSub.style.backgroundColor = '#797979';
+    buttonSub.style.borderColor = '#ffffff';
+    buttonSub.style.color = '#ffffff';
+
+    if (nums[0] === undefined) {
+        selectedOperator = 'sub';
+        nums[0] = +textDisplay.textContent;
+        return textDisplay.textContent = '';
+    }
+    operate();
+    selectedOperator = 'sub';
+    return textDisplay.textContent = nums[0]
 }
 
 function multiply(a, b) {
-    return a * b;
+    resetButtons()
+    buttonClicked = [];
+    buttonMultiply.style.backgroundColor = '#797979';
+    buttonMultiply.style.borderColor = '#ffffff';
+    buttonMultiply.style.color = '#ffffff';
+
+    if (nums[0] === undefined) {
+        selectedOperator = 'multiply';
+        nums[0] = +textDisplay.textContent;
+        return textDisplay.textContent = '';
+    }
+    operate();
+    selectedOperator = 'multiply';
+    return textDisplay.textContent = nums[0]
 }
 
 function divide(a, b) {
-    return a / b;
+    resetButtons()
+    buttonClicked = [];
+    buttonDivide.style.backgroundColor = '#797979';
+    buttonDivide.style.borderColor = '#ffffff';
+    buttonDivide.style.color = '#ffffff';
+
+    if (nums[0] === undefined) {
+        selectedOperator = 'divide';
+        nums[0] = +textDisplay.textContent;
+        return textDisplay.textContent = '';
+    }
+    operate();
+    selectedOperator = 'divide';
+    return textDisplay.textContent = nums[0]
 }
 
 // function operate(num, op) {
