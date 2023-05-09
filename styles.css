@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
 body {
     display: flex;
     justify-content: center;
+    font-family: 'Orbitron', sans-serif;
 }
 
 .calculator-container {
@@ -94,5 +97,5 @@ body {
 
 .button.operate {
     background-color: #ffd900;
-    color: #000000;
+    color: #424242;
 }

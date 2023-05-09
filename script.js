@@ -52,7 +52,7 @@ function resetButtons() {
     buttonBkspace.style.backgroundColor = '#e41414';
     buttonBkspace.style.color = '#ffffff';
     buttonOperate.style.backgroundColor = '#ffd900';
-    buttonOperate.style.color = '#000000';
+    buttonOperate.style.color = '#424242';
 }
 
 // Timeout is set so the buttons can have an effect on click
@@ -84,7 +84,7 @@ const buttonDec = document.querySelector('.button.dec');
 buttonDec.addEventListener('click', () => {
     if (!textDisplay.textContent.includes('.')) {
         buttonClicked.push(buttonDec.textContent);
-        changeButtonColor(buttonDec, '#797979', '', '#ffffff')
+        changeButtonColor(buttonDec, '#797979', '', '#bbbbbb')
         populateDisplay();
     }
 })
@@ -94,6 +94,8 @@ const buttons = document.querySelectorAll('.button');
 
 const buttonBkspace = document.querySelector('.button.bkspace');
 buttonBkspace.addEventListener('click', () => {
+    changeButtonColor(buttonBkspace, '#a30f0f', '', '#bbbbbb')
+    setTimeout(() => resetButtons(), 100);
     if (textDisplay.textContent.length === 1) {
         textDisplay.textContent = '0'
         return buttonClicked = [];
@@ -104,13 +106,13 @@ buttonBkspace.addEventListener('click', () => {
 
 const buttonClear = document.querySelector('.button.clear');
 buttonClear.addEventListener('click', () => {
-    changeButtonColor(buttonClear, '', '', 'red');
+    changeButtonColor(buttonClear, '#a30f0f', '', '#bbbbbb');
     clearCalc();
 });
 
 const buttonOperate = document.querySelector('.button.operate');
 buttonOperate.addEventListener('click', () => {
-    changeButtonColor(buttonOperate, '', '', '#ffffff')
+    changeButtonColor(buttonOperate, '#ceb31e', '', '#6b6b6b')
     operate();
     const total = nums[0]
     clearCalc();
