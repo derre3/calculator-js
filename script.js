@@ -80,13 +80,14 @@ for (let i = 0; i < buttonNum.length; i++) {
     });
 }
 
-// WIP not sure yet on how to reset the once:true property
 const buttonDec = document.querySelector('.button.dec');
 buttonDec.addEventListener('click', () => {
-    buttonClicked.push(buttonDec.textContent);
-    changeButtonColor(buttonDec, '#797979', '', '#ffffff')
-    populateDisplay();
-}, {once:true})
+    if (!textDisplay.textContent.includes('.')) {
+        buttonClicked.push(buttonDec.textContent);
+        changeButtonColor(buttonDec, '#797979', '', '#ffffff')
+        populateDisplay();
+    }
+})
 
 // click events for the rest of the buttons
 const buttons = document.querySelectorAll('.button');
