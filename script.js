@@ -19,7 +19,7 @@ function displayOperation() {
     }
     operate();
     selectedOperator = this.className;
-    return textDisplay.textContent = nums[0]
+    return textDisplay.textContent = Math.floor(nums[0] * 1000) / 1000;
 }
 
 function operate() {
