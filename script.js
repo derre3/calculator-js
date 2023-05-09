@@ -112,6 +112,10 @@ buttonClear.addEventListener('click', () => {
 
 const buttonOperate = document.querySelector('.button.operate');
 buttonOperate.addEventListener('click', () => {
+    if (nums[0] === undefined) {
+        changeButtonColor(buttonOperate, '#ceb31e', '', '#6b6b6b');
+        return setTimeout(() => resetButtons(), 100);
+    }
     changeButtonColor(buttonOperate, '#ceb31e', '', '#6b6b6b')
     operate();
     const total = nums[0]
