@@ -7,7 +7,7 @@ function changeButtonColor(button, bgColor, bdColor, txtColor) {
 function getFirstNumber(op) {
     selectedOperator = op;
     nums[0] = +textDisplay.textContent;
-    return textDisplay.textContent = '';
+    return textDisplay.textContent = '0';
 }
 
 function displayOperation() {
