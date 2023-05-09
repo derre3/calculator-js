@@ -25,15 +25,14 @@ function displayOperation() {
 function operate() {
     nums[1] = +textDisplay.textContent;
     if (selectedOperator === 'button add') {
-        nums[0] += nums[1];
+        return nums[0] += nums[1];
     } else if (selectedOperator === 'button sub') {
-        nums[0] -= nums[1];
+        return nums[0] -= nums[1];
     } else if (selectedOperator === 'button multiply') {
-        nums[0] *= nums[1];
+        return nums[0] *= nums[1];
     } else if (selectedOperator === 'button divide') {
-        nums[0] /= nums[1];
+        return nums[0] /= nums[1];
     }
-    return nums[0]
 }
 
 function populateDisplay() {
@@ -41,6 +40,7 @@ function populateDisplay() {
     return textDisplay.textContent = buttonClicked.join('');
 }
 
+// reset buttons to original colors
 function resetButtons() {
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].style.backgroundColor = '#5e5e5e';
@@ -55,6 +55,7 @@ function resetButtons() {
         buttonOperate.style.color = '#000000';
 }
 
+// Timeout is set so the buttons can have an effect on click
 function clearCalc() {
     setTimeout(() => resetButtons(), 100);
     buttonClicked = [];
@@ -62,11 +63,12 @@ function clearCalc() {
     return textDisplay.textContent = 0;
 }
 
-const textDisplay = document.querySelector('.calculator-display');
-
+// Global variables
 let buttonClicked = [];
 let nums = [];
 let selectedOperator
+// used as a variable (textDisplay.textContent) to update the calculator display
+const textDisplay = document.querySelector('.calculator-display');
 
 // click event for number buttons
 const buttonNum = document.querySelectorAll('.button.num');
@@ -78,6 +80,7 @@ for (let i = 0; i < buttonNum.length; i++) {
     });
 }
 
+// WIP not sure yet on how to reset the once:true property
 const buttonDec = document.querySelector('.button.dec');
 buttonDec.addEventListener('click', () => {
     buttonClicked.push(buttonDec.textContent);
@@ -92,8 +95,7 @@ const buttonBkspace = document.querySelector('.button.bkspace');
 buttonBkspace.addEventListener('click', () => {
     if (textDisplay.textContent.length === 1) {
         textDisplay.textContent = '0'
-        buttonClicked = [];
-        return
+        return buttonClicked = [];
     };
     textDisplay.textContent = textDisplay.textContent.slice(0, -1);
     return buttonClicked = [textDisplay.textContent];
@@ -111,7 +113,7 @@ buttonOperate.addEventListener('click', () => {
     operate();
     const total = nums[0]
     clearCalc();
-    return textDisplay.textContent = Math.floor(total *1000) / 1000;
+    return textDisplay.textContent = Math.floor(total * 1000) / 1000;
 });
 
 const buttonAdd = document.querySelector('.button.add');
