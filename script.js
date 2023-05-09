@@ -75,6 +75,17 @@ for (let i = 0; i < buttonNum.length; i++) {
 // click events for the rest of the buttons
 const buttons = document.querySelectorAll('.button');
 
+const buttonBkspace = document.querySelector('.button.bkspace');
+buttonBkspace.addEventListener('click', () => {
+    if (textDisplay.textContent.length === 1) {
+        textDisplay.textContent = '0'
+        buttonClicked = [];
+        return
+    };
+    textDisplay.textContent = textDisplay.textContent.slice(0, -1);
+    return buttonClicked = [textDisplay.textContent];
+})
+
 const buttonClear = document.querySelector('.button.clear');
 buttonClear.addEventListener('click', () => {
     changeButtonColor(buttonClear, '', '', 'red');
