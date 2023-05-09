@@ -1,32 +1,14 @@
-function add() {
-    resetButtons()
-    buttonClicked = [];
-    buttonAdd.style.backgroundColor = '#797979';
-    buttonAdd.style.borderColor = '#ffffff';
-    buttonAdd.style.color = '#ffffff';
-
-    if (nums[0] === undefined) {
-        selectedOperator = 'add';
-        nums[0] = +textDisplay.textContent;;
-        return textDisplay.textContent = '';
-    }
-    operate();
-    selectedOperator = 'add';
-    return textDisplay.textContent = nums[0]
+function changeButtonColor(button) {
+    button.style.backgroundColor = '#797979';
+    button.style.borderColor = '#ffffff';
+    button.style.color = '#ffffff';
 }
 
-function sub() {
-    resetButtons()
-    buttonClicked = [];
-    buttonSub.style.backgroundColor = '#797979';
-    buttonSub.style.borderColor = '#ffffff';
-    buttonSub.style.color = '#ffffff';
-
-    if (nums[0] === undefined) {
-        selectedOperator = 'sub';
-        nums[0] = +textDisplay.textContent;
-        return textDisplay.textContent = '';
-    }
+function getFirstNumber(op) {
+    selectedOperator = op;
+    nums[0] = +textDisplay.textContent;
+    return textDisplay.textContent = '';
+}
     operate();
     selectedOperator = 'sub';
     return textDisplay.textContent = nums[0]
@@ -49,38 +31,38 @@ function multiply() {
     return textDisplay.textContent = nums[0]
 }
 
-function divide() {
-    resetButtons()
+function displayOperation() {
+    resetButtons();
+    changeButtonColor(this);
     buttonClicked = [];
     buttonDivide.style.backgroundColor = '#797979';
     buttonDivide.style.borderColor = '#ffffff';
     buttonDivide.style.color = '#ffffff';
 
     if (nums[0] === undefined) {
-        selectedOperator = 'divide';
-        nums[0] = +textDisplay.textContent;
-        return textDisplay.textContent = '';
+        return getFirstNumber(this.className)
     }
     operate();
-    selectedOperator = 'divide';
+    selectedOperator = this.className;
     return textDisplay.textContent = nums[0]
 }
 
 function operate() {
     nums[1] = +textDisplay.textContent;
-    if (selectedOperator === 'add') {
-        return nums[0] += nums[1]
-    } else if (selectedOperator === 'sub') {
-        return nums[0] -= nums[1]
-    } else if (selectedOperator === 'multiply') {
-        return nums[0] *= nums[1]
-    } else if (selectedOperator === 'divide') {
-        return nums[0] /= nums[1]
+    if (selectedOperator === 'button add') {
+        nums[0] += nums[1];
+    } else if (selectedOperator === 'button sub') {
+        nums[0] -= nums[1];
+    } else if (selectedOperator === 'button multiply') {
+        nums[0] *= nums[1];
+    } else if (selectedOperator === 'button divide') {
+        nums[0] /= nums[1];
     }
+    return nums[0]
 }
 
 function populateDisplay() {
-    resetButtons()
+    resetButtons();
     return textDisplay.textContent = buttonClicked.join('');
 }
 
@@ -121,16 +103,16 @@ const buttonClear = document.querySelector('.button.clear');
 buttonClear.addEventListener('click', clearCalc);
 
 const buttonAdd = document.querySelector('.button.add');
-buttonAdd.addEventListener('click', add)
+buttonAdd.addEventListener('click', displayOperation)
 
 const buttonSub = document.querySelector('.button.sub');
-buttonSub.addEventListener('click', sub)
+buttonSub.addEventListener('click', displayOperation)
 
 const buttonMultiply = document.querySelector('.button.multiply');
-buttonMultiply.addEventListener('click', multiply)
+buttonMultiply.addEventListener('click', displayOperation)
 
 const buttonDivide = document.querySelector('.button.divide');
-buttonDivide.addEventListener('click', divide)
+buttonDivide.addEventListener('click', displayOperation)
 
 const buttonOperate = document.querySelector('.button.operate');
 buttonOperate.addEventListener('click', () => {
