@@ -12,7 +12,7 @@ function getFirstNumber(op) {
 
 function displayOperation() {
     resetButtons();
-    changeButtonColor(this);
+    changeButtonColor(this, '#797979', '#ffffff', '#ffffff');
     buttonClicked = [];
     if (nums[0] === undefined) {
         return getFirstNumber(this.className)
@@ -37,20 +37,20 @@ function operate() {
 }
 
 function populateDisplay() {
-    resetButtons();
+    setTimeout(() => resetButtons(), 100);
     return textDisplay.textContent = buttonClicked.join('');
 }
 
 function resetButtons() {
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].style.backgroundColor = '#ffffff'
-        buttons[i].style.borderColor = '#797979';
-        buttons[i].style.color = '#000000';
-    }
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].style.backgroundColor = '#ffffff'
+            buttons[i].style.borderColor = '#797979';
+            buttons[i].style.color = '#000000';
+        }
 }
 
 function clearCalc() {
-    resetButtons()
+    setTimeout(() => resetButtons(), 100);
     buttonClicked = [];
     nums = [];
     return textDisplay.textContent = 0;
@@ -67,15 +67,28 @@ const buttonNum = document.querySelectorAll('.button.num');
 for (let i = 0; i < buttonNum.length; i++) {
     buttonNum[i].addEventListener("click", () => {
         buttonClicked.push(buttonNum[i].textContent);
+        changeButtonColor(buttonNum[i], '#797979', '', '#ffffff')
         populateDisplay();
     });
 }
 
-// click event for AC button
+// click events for the rest of the buttons
 const buttons = document.querySelectorAll('.button');
 
 const buttonClear = document.querySelector('.button.clear');
-buttonClear.addEventListener('click', clearCalc);
+buttonClear.addEventListener('click', () => {
+    changeButtonColor(buttonClear, '', '', 'red');
+    clearCalc();
+});
+
+const buttonOperate = document.querySelector('.button.operate');
+buttonOperate.addEventListener('click', () => {
+    changeButtonColor(buttonOperate, '', '', 'red')
+    operate();
+    const total = nums[0]
+    clearCalc();
+    return textDisplay.textContent = Math.floor(total *1000) / 1000;
+});
 
 const buttonAdd = document.querySelector('.button.add');
 buttonAdd.addEventListener('click', displayOperation)
@@ -88,11 +101,3 @@ buttonMultiply.addEventListener('click', displayOperation)
 
 const buttonDivide = document.querySelector('.button.divide');
 buttonDivide.addEventListener('click', displayOperation)
-
-const buttonOperate = document.querySelector('.button.operate');
-buttonOperate.addEventListener('click', () => {
-    operate();
-    const total = nums[0]
-    clearCalc();
-    return textDisplay.textContent = total;
-});
