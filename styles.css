@@ -1,13 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
+
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+a:active {
+    color: white;
+    background-color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 body {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     font-family: 'Orbitron', sans-serif;
+    gap: 45px;
+}
+
+.footer-container {
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
 }
 
 .calculator-container {
-    margin: 200px 0 0 0;
+    margin: 10% 0 0 0;
     background-color: #333333;
     width: 400px;
     height: 500px;
