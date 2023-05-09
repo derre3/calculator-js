@@ -15,7 +15,7 @@ body {
 .calculator-shell {
     display: flex;
     flex-direction: column;
-    background-color: #acacac;
+    background-color: #9e9e9e;
     width: inherit;
     height: inherit;
     border-radius: 3%;
@@ -33,10 +33,11 @@ body {
     align-items: center;
     margin: 25px;
     padding: 0px 7px;
-    background-color: #ffffff;
     width: 85%;
     height: 70px;
     font-size: 40px;
+    background-color: #80e5ff;
+    color: #0e5b6e;
 }
 
 .row-container {
@@ -52,7 +53,6 @@ body {
     flex: 1 1 100%;
     justify-content: center;
     align-items: center;
-    background-color: white;
     font-size: 25px;
 }
 
@@ -64,9 +64,34 @@ body {
     margin-bottom: 25px;
 }
 
+.button.clear {
+    flex-basis: 200%;
+}
+
 .button,
 .calculator-display {
     border-color: #797979;
     border-width: 1px;
     border-style: solid;
+}
+
+.button.add,
+.button.sub,
+.button.multiply,
+.button.divide,
+.button.num,
+.button.dec {
+    background-color: #5e5e5e;
+    color: #ffffff;
+}
+
+.button.clear,
+.button.bkspace {
+    background-color: #e41414;
+    color: #ffffff;
+}
+
+.button.operate {
+    background-color: #ffd900;
+    color: #000000;
 }

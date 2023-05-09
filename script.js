@@ -12,7 +12,7 @@ function getFirstNumber(op) {
 
 function displayOperation() {
     resetButtons();
-    changeButtonColor(this, '#797979', '#ffffff', '#ffffff');
+    changeButtonColor(this, '#ffd900', '', '#000000');
     buttonClicked = [];
     if (nums[0] === undefined) {
         return getFirstNumber(this.className)
@@ -43,10 +43,16 @@ function populateDisplay() {
 
 function resetButtons() {
         for (let i = 0; i < buttons.length; i++) {
-            buttons[i].style.backgroundColor = '#ffffff'
+            buttons[i].style.backgroundColor = '#5e5e5e';
             buttons[i].style.borderColor = '#797979';
-            buttons[i].style.color = '#000000';
+            buttons[i].style.color = '#ffffff';
         }
+        buttonClear.style.backgroundColor = '#e41414';
+        buttonClear.style.color = '#ffffff';
+        buttonBkspace.style.backgroundColor = '#e41414';
+        buttonBkspace.style.color = '#ffffff';
+        buttonOperate.style.backgroundColor = '#ffd900';
+        buttonOperate.style.color = '#000000';
 }
 
 function clearCalc() {
@@ -72,6 +78,13 @@ for (let i = 0; i < buttonNum.length; i++) {
     });
 }
 
+const buttonDec = document.querySelector('.button.dec');
+buttonDec.addEventListener('click', () => {
+    buttonClicked.push(buttonDec.textContent);
+    changeButtonColor(buttonDec, '#797979', '', '#ffffff')
+    populateDisplay();
+}, {once:true})
+
 // click events for the rest of the buttons
 const buttons = document.querySelectorAll('.button');
 
@@ -94,7 +107,7 @@ buttonClear.addEventListener('click', () => {
 
 const buttonOperate = document.querySelector('.button.operate');
 buttonOperate.addEventListener('click', () => {
-    changeButtonColor(buttonOperate, '', '', 'red')
+    changeButtonColor(buttonOperate, '', '', '#ffffff')
     operate();
     const total = nums[0]
     clearCalc();
