@@ -1,7 +1,7 @@
-function changeButtonColor(button) {
-    button.style.backgroundColor = '#797979';
-    button.style.borderColor = '#ffffff';
-    button.style.color = '#ffffff';
+function changeButtonColor(button, bgColor, bdColor, txtColor) {
+    button.style.backgroundColor = bgColor;
+    button.style.borderColor = bdColor;
+    button.style.color = txtColor;
 }
 
 function getFirstNumber(op) {
