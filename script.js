@@ -42,11 +42,11 @@ function populateDisplay() {
 
 // reset buttons to original colors
 function resetButtons() {
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].style.backgroundColor = '#5e5e5e';
-        buttons[i].style.borderColor = '#797979';
-        buttons[i].style.color = '#ffffff';
-    }
+    buttons.forEach(button => {
+        button.style.backgroundColor = '#5e5e5e';
+        button.style.borderColor = '#797979';
+        button.style.color = '#ffffff';
+    });
     buttonClear.style.backgroundColor = '#e41414';
     buttonClear.style.color = '#ffffff';
     buttonBkspace.style.backgroundColor = '#e41414';
@@ -72,13 +72,13 @@ const textDisplay = document.querySelector('.calculator-display');
 
 // click event for number buttons
 const buttonNum = document.querySelectorAll('.button.num');
-for (let i = 0; i < buttonNum.length; i++) {
-    buttonNum[i].addEventListener("click", () => {
-        buttonClicked.push(buttonNum[i].textContent);
-        changeButtonColor(buttonNum[i], '#797979', '', '#ffffff')
+buttonNum.forEach(button => {
+    button.addEventListener('click', () => {
+        buttonClicked.push(button.textContent);
+        changeButtonColor(button, '#797979', '', '#bbbbbb');
         populateDisplay();
-    });
-}
+    })
+});
 
 const buttonDec = document.querySelector('.button.dec');
 buttonDec.addEventListener('click', () => {
