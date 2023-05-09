@@ -75,6 +75,7 @@ body {
     border-style: solid;
 }
 
+.button.operator,
 .button.add,
 .button.sub,
 .button.multiply,

@@ -15,22 +15,22 @@ function displayOperation() {
     changeButtonColor(this, '#ffd900', '', '#000000');
     buttonClicked = [];
     if (nums[0] === undefined) {
-        return getFirstNumber(this.className)
+        return getFirstNumber(this.id)
     }
     operate();
-    selectedOperator = this.className;
+    selectedOperator = this.id;
     return textDisplay.textContent = Math.floor(nums[0] * 1000) / 1000;
 }
 
 function operate() {
     nums[1] = +textDisplay.textContent;
-    if (selectedOperator === 'button add') {
+    if (selectedOperator === 'add') {
         return nums[0] += nums[1];
-    } else if (selectedOperator === 'button sub') {
+    } else if (selectedOperator === 'sub') {
         return nums[0] -= nums[1];
-    } else if (selectedOperator === 'button multiply') {
+    } else if (selectedOperator === 'multiply') {
         return nums[0] *= nums[1];
-    } else if (selectedOperator === 'button divide') {
+    } else if (selectedOperator === 'divide') {
         return nums[0] /= nums[1];
     }
 }
@@ -117,14 +117,7 @@ buttonOperate.addEventListener('click', () => {
     return textDisplay.textContent = Math.floor(total * 1000) / 1000;
 });
 
-const buttonAdd = document.querySelector('.button.add');
-buttonAdd.addEventListener('click', displayOperation)
-
-const buttonSub = document.querySelector('.button.sub');
-buttonSub.addEventListener('click', displayOperation)
-
-const buttonMultiply = document.querySelector('.button.multiply');
-buttonMultiply.addEventListener('click', displayOperation)
-
-const buttonDivide = document.querySelector('.button.divide');
-buttonDivide.addEventListener('click', displayOperation)
+const buttonOperator = document.querySelectorAll('.button.operator');
+buttonOperator.forEach(operator => {
+    operator.addEventListener('click', displayOperation);
+});
