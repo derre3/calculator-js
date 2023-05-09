@@ -42,17 +42,17 @@ function populateDisplay() {
 
 // reset buttons to original colors
 function resetButtons() {
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].style.backgroundColor = '#5e5e5e';
-            buttons[i].style.borderColor = '#797979';
-            buttons[i].style.color = '#ffffff';
-        }
-        buttonClear.style.backgroundColor = '#e41414';
-        buttonClear.style.color = '#ffffff';
-        buttonBkspace.style.backgroundColor = '#e41414';
-        buttonBkspace.style.color = '#ffffff';
-        buttonOperate.style.backgroundColor = '#ffd900';
-        buttonOperate.style.color = '#000000';
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].style.backgroundColor = '#5e5e5e';
+        buttons[i].style.borderColor = '#797979';
+        buttons[i].style.color = '#ffffff';
+    }
+    buttonClear.style.backgroundColor = '#e41414';
+    buttonClear.style.color = '#ffffff';
+    buttonBkspace.style.backgroundColor = '#e41414';
+    buttonBkspace.style.color = '#ffffff';
+    buttonOperate.style.backgroundColor = '#ffd900';
+    buttonOperate.style.color = '#000000';
 }
 
 // Timeout is set so the buttons can have an effect on click
