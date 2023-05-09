@@ -9,36 +9,11 @@ function getFirstNumber(op) {
     nums[0] = +textDisplay.textContent;
     return textDisplay.textContent = '';
 }
-    operate();
-    selectedOperator = 'sub';
-    return textDisplay.textContent = nums[0]
-}
-
-function multiply() {
-    resetButtons()
-    buttonClicked = [];
-    buttonMultiply.style.backgroundColor = '#797979';
-    buttonMultiply.style.borderColor = '#ffffff';
-    buttonMultiply.style.color = '#ffffff';
-
-    if (nums[0] === undefined) {
-        selectedOperator = 'multiply';
-        nums[0] = +textDisplay.textContent;
-        return textDisplay.textContent = '';
-    }
-    operate();
-    selectedOperator = 'multiply';
-    return textDisplay.textContent = nums[0]
-}
 
 function displayOperation() {
     resetButtons();
     changeButtonColor(this);
     buttonClicked = [];
-    buttonDivide.style.backgroundColor = '#797979';
-    buttonDivide.style.borderColor = '#ffffff';
-    buttonDivide.style.color = '#ffffff';
-
     if (nums[0] === undefined) {
         return getFirstNumber(this.className)
     }
