@@ -15,7 +15,7 @@ function displayOperation() {
     changeButtonColor(this, '#ffd900', '', '#000000');
     buttonClicked = [];
     if (nums[0] === undefined) {
-        return getFirstNumber(this.id)
+        return getFirstNumber(this.id);
     }
     operate();
     selectedOperator = this.id;
@@ -66,7 +66,7 @@ function clearCalc() {
 // Global variables
 let buttonClicked = [];
 let nums = [];
-let selectedOperator
+let selectedOperator;
 // used as a variable (textDisplay.textContent) to update the calculator display
 const textDisplay = document.querySelector('.calculator-display');
 
@@ -84,7 +84,7 @@ const buttonDec = document.querySelector('.button.dec');
 buttonDec.addEventListener('click', () => {
     if (!textDisplay.textContent.includes('.')) {
         buttonClicked.push(buttonDec.textContent);
-        changeButtonColor(buttonDec, '#797979', '', '#bbbbbb')
+        changeButtonColor(buttonDec, '#797979', '', '#bbbbbb');
         populateDisplay();
     }
 })
@@ -97,7 +97,7 @@ buttonBkspace.addEventListener('click', () => {
     changeButtonColor(buttonBkspace, '#a30f0f', '', '#bbbbbb')
     setTimeout(() => resetButtons(), 100);
     if (textDisplay.textContent.length === 1) {
-        textDisplay.textContent = '0'
+        textDisplay.textContent = '0';
         return buttonClicked = [];
     };
     textDisplay.textContent = textDisplay.textContent.slice(0, -1);
@@ -112,12 +112,12 @@ buttonClear.addEventListener('click', () => {
 
 const buttonOperate = document.querySelector('.button.operate');
 buttonOperate.addEventListener('click', () => {
-    changeButtonColor(buttonOperate, '#ceb31e', '', '#6b6b6b')
+    changeButtonColor(buttonOperate, '#ceb31e', '', '#6b6b6b');
     if (nums[0] === undefined) {
         return setTimeout(() => resetButtons(), 100);
     }
     operate();
-    const total = nums[0]
+    const total = nums[0];
     clearCalc();
     return textDisplay.textContent = Math.floor(total * 1000) / 1000;
 });
