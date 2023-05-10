@@ -18,6 +18,10 @@ function displayOperation() {
         return getFirstNumber(this.id);
     }
     operate();
+    if (nums[0] === Infinity || isNaN(nums[0])) {
+        textDisplay.textContent = "ERROR"
+        return
+    }
     selectedOperator = this.id;
     return textDisplay.textContent = Math.floor(nums[0] * 1000) / 1000;
 }
@@ -59,8 +63,7 @@ function resetButtons() {
 function clearCalc() {
     setTimeout(() => resetButtons(), 100);
     buttonClicked = [];
-    nums = [];
-    return textDisplay.textContent = 0;
+    return nums = [];
 }
 
 // Global variables
@@ -108,6 +111,7 @@ const buttonClear = document.querySelector('.button.clear');
 buttonClear.addEventListener('click', () => {
     changeButtonColor(buttonClear, '#a30f0f', '', '#bbbbbb');
     clearCalc();
+    textDisplay.textContent = '0'
 });
 
 const buttonOperate = document.querySelector('.button.operate');
@@ -117,6 +121,11 @@ buttonOperate.addEventListener('click', () => {
         return setTimeout(() => resetButtons(), 100);
     }
     operate();
+    if (nums[0] === Infinity || isNaN(nums[0])) {
+        textDisplay.textContent = "ERROR"
+        clearCalc();
+        return
+    }
     const total = nums[0];
     clearCalc();
     return textDisplay.textContent = Math.floor(total * 1000) / 1000;
