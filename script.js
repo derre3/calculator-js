@@ -37,7 +37,7 @@ function operate() {
 
 function populateDisplay() {
     setTimeout(() => resetButtons(), 100);
-    return textDisplay.textContent = buttonClicked.join('');
+    return textDisplay.textContent.length < 10 ? textDisplay.textContent = buttonClicked.join('') : false
 }
 
 // reset buttons to original colors
