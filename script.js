@@ -82,11 +82,11 @@ buttonNum.forEach(button => {
 
 const buttonDec = document.querySelector('.button.dec');
 buttonDec.addEventListener('click', () => {
+    changeButtonColor(buttonDec, '#797979', '', '#bbbbbb');
     if (!textDisplay.textContent.includes('.')) {
         buttonClicked.push(buttonDec.textContent);
-        changeButtonColor(buttonDec, '#797979', '', '#bbbbbb');
-        populateDisplay();
     }
+    populateDisplay();
 })
 
 // click events for the rest of the buttons
